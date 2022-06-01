@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, CssBaseline, Card, CardContent } from '@mui/material';
+import { Container, Grid, CssBaseline, Card, CardContent, Button } from '@mui/material';
 
 import { Header } from './component/Header';
 import { WordInputForm } from './component/WordInputForm';
@@ -19,6 +19,14 @@ const App: React.FC = () => {
     players.push({ id: 0, name: 'player1', isActive: false , inputWord: ''});
     players.push({ id: 1, name: 'player2', isActive: false , inputWord: ''});
     
+    const initVars = () => {
+        setPlayers([]);
+        setHistories([]);
+        setUsedWords(new Set<string>());
+        players.push({ id: 0, name: 'player1', isActive: false , inputWord: ''});
+        players.push({ id: 1, name: 'player2', isActive: false , inputWord: ''});
+    }
+
     const setPlayerActivity = (id: number, isActive: boolean) => {
         setPlayers(players.map(player => {
             if (player.id === id) {
@@ -133,6 +141,7 @@ const App: React.FC = () => {
                             </CardContent>
                         </Card>
                     </Grid>
+                    <Button onClick={initVars}>reset</Button>
                 </Grid>
             </Container>
         </>
