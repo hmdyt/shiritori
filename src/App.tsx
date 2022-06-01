@@ -99,7 +99,13 @@ const App: React.FC = () => {
     }
 
     const handleFormSubmitEnter = (playerID: number, word: string) => {
-        if (canSubmit(playerID, word)) {
+        if (histories.length === 0) {
+            if (word.length > 2) {
+                handleFormSubmit(playerID, word);
+            } 
+            return
+        }
+        if (canSubmit(playerID, word) || histories.length === 0) {
             handleFormSubmit(playerID, word);
         }
     }
