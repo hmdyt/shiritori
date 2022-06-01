@@ -99,7 +99,7 @@ const App: React.FC = () => {
     return (
         <>  
             <CssBaseline />
-            <Header title="Shiritori" githubLink="" />
+            <Header title="Shiritori" githubLink="https://github.com/hmdyt/shiritori" />
             <Container fixed sx={{ pt: 3 }}>  
                 <Grid container spacing={2}>
                     <Grid item xs={4}>
