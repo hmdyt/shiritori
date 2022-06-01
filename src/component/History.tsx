@@ -12,11 +12,20 @@ type historyProps = {
 
 export const History = (props: historyProps) => {
     const histories = props.histories.slice(0, props.n_show);
+    histories.reverse();
     return (
         <List>
-            {histories.map((history, index) => (
-                <ListItem key={index}>{history.playerID + history.word}</ListItem>
-            ))}
+            {histories.map((history, index) => {
+                return index === 0 ? (
+                    <ListItem key={index}>
+                        <b>{history.word}</b>
+                    </ListItem>
+                ) : (
+                    <ListItem key={index}>
+                        <span>{history.word}</span>
+                    </ListItem>
+                );
+            })}
         </List>
     );
 };
