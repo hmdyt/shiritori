@@ -96,6 +96,11 @@ const App: React.FC = () => {
         setPlayerInputWord(playerID, '');
         setHistories(histories.concat({ playerID, word }));
         setUsedWords(usedWords.add(word));
+        if (word.slice(-1) == 'ん') {
+            let winner_name: string = players[playerID].name;
+            alert(`${winner_name} is the winner!`);
+            initVars();
+        }
     }
 
     const handleFormSubmitEnter = (playerID: number, word: string) => {
